@@ -6,7 +6,7 @@ import "dotenv/config";
 import express from "express";
 import { resolve } from "node:path"; // <-- ADICIONE ESTA LINHA!
 
-// ... outros imports (cors, routes, database, etc.)
+// ... outros imports ()
 
 const app = express();
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
