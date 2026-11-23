@@ -10,8 +10,14 @@ app.use(express.json()); // 🔧 precisa vir ANTES das rotas
 app.use(express.urlencoded({ extended: true }));
 
 // 🔧 rotas públicas de arquivo ANTES do router protegido
-app.use("/producty-file", fileRouteConfig);
-app.use("/category-file", fileRouteConfig);
+app.use(
+  '/product-file',
+  express.static(resolve(__dirname, "..","uploads"))
+);
+app.use(
+  '/category-file',
+  express.static(resolve(__dirname, "..","uploads"))
+);
 
 app.use(routes);
 app.use("/producty-file", fileRouteConfig);

@@ -2,5 +2,9 @@ import "dotenv/config";
 import app from "./app.js";
 import "./database/index.js";
 
-const port = process.env.PORT
-app.listen(3001, () => console.log("Servidor Reiniciou, Porta 3001"));
+// No seu server.js ou app.js:
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`🍔 DevBurger rodando na porta ${PORT}`);
+});

@@ -9,11 +9,12 @@ class Product extends Model {
         path: Sequelize.STRING,
         offer: Sequelize.BOOLEAN,
         url: {
-          type: Sequelize.VIRTUAL,
-          get() {
-            return `http://localhost:3001/producty-file/${this.path}`;
-          },
-        },
+  type: Sequelize.VIRTUAL,
+  get() {
+    // Usando a URL pública HTTPS do Easypanel e corrigindo a rota para /product-file/
+    return `https://dev-burguer-backend.4l3rfx.easypanel.host/product-file/${this.path}`;
+  },
+}
       },
       {
         sequelize,
