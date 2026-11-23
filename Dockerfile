@@ -12,5 +12,5 @@ COPY . .
 # Expõe a porta do Express
 EXPOSE 3001
 
-# Executa as migrations do Postgres e inicia o servidor Node
-CMD npx sequelize-cli db:migrate && npm run start
+# Rodar migration e subir o servidor:
+CMD ["sh", "-c", "npx sequelize-cli db:migrate && npm run start"]
