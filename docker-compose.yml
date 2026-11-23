@@ -1,0 +1,10 @@
+services:
+  database_dev_burguer:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: V3ter4no
+      POSTGRES_DB: dev-burguer-db
+    ports:
+      - "5432:5432"
