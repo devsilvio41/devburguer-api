@@ -3,7 +3,6 @@ import routes from "./routes.js";
 import fileRouteConfig from "./config/fileRoutes.cjs";
 import cors from "cors";
 import "dotenv/config";
-import express from "express";
 import { resolve } from "node:path"; // <-- ADICIONE ESTA LINHA!
 
 // ... outros imports ()
