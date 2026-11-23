@@ -1,30 +1,16 @@
-# FROM node:20-alpine
+FROM node:20-alpine
 
-# WORKDIR /app
-
-# COPY package.json ./
-# RUN npm install
-
-# COPY . .
-
-# EXPOSE 3001
-
-# CMD npx sequelize-cli db:migrate && npm run start
-
-
-# Etapa 1: build
-FROM node:20-alpine AS build
 WORKDIR /app
 
+# Copia os arquivos de dependência
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
+# Copia o restante do código
 COPY . .
-RUN npm run build
 
-# Etapa 2: servidor
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+# Expõe a porta do Express
+EXPOSE 3001
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Executa as migrations do Postgres e inicia o servidor Node
+CMD npx sequelize-cli db:migrate && npm run start
